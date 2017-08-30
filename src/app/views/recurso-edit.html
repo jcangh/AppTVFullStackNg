@@ -1,0 +1,40 @@
+<div class="col-lg-6">
+    <h1>{{titulo}}</h1>
+    <div *ngIf="mensajeAlerta">
+            <div class="alert alert-info">
+                <strong>{{mensajeAlerta}}</strong>
+            </div>
+    </div>
+    <form #recursoForm="ngForm" class="col-md-10" (ngSubmit)="guardarRecurso()">
+        <p>
+            <label>Nombre:</label>
+            <input id="nombre" type="text" #nombre="ngModel" name="nombre" [(ngModel)]="recurso.nombre" class="form-control" required />
+            <span *ngIf="!nombre.valid || nombre.pristine">
+                    El nombre es obligatorio
+            </span>
+        </p>
+        <p>
+            <label>Descripción:</label>
+            <input id="descripcion" type="text" #descripcion="ngModel" name="descripcion" [(ngModel)]="recurso.descripcion" class="form-control" required />
+            <span *ngIf="!descripcion.valid || descripcion.pristine" >
+                    La descripcion es obligatoria
+            </span>
+        </p>
+        <p>
+            <label>Ruta:</label>
+            <input type="text" #ruta="ngModel" name="ruta" [(ngModel)]="recurso.ruta" class="form-control" required />
+            <span *ngIf="!ruta.valid || ruta.pristine" >
+                    La ruta es obligatoria
+            </span>
+        </p>
+        <p>
+            <label>Orden:</label>
+            <input type="number" #orden="ngModel" name="orden" [(ngModel)]="recurso.orden" class="form-control" required />
+            <span *ngIf="!orden.valid ||  orden.pristine" >
+                    El orden es obligatorio
+            </span>
+        </p>
+
+        <input type="submit" value="Guardar recurso" class="btn btn-primary" [disabled]="!recursoForm.form.valid"/> 
+    </form>
+</div>
