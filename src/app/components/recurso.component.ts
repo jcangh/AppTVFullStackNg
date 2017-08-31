@@ -15,7 +15,7 @@ export class RecursoComponent implements OnInit{
 
     constructor(private recursoService:RecursoService){
         this.titulo = "Agregar/Editar recurso";
-        this.recurso = new Recurso("","",new Date(),false,"",1);
+        this.recurso = new Recurso("","","",new Date(),false,"",1);
     }
 
     ngOnInit(): void {
@@ -30,7 +30,7 @@ export class RecursoComponent implements OnInit{
                     this.mensajeAlerta = 'El recurso no se ha podido guardar';
                 }else{
                     this.mensajeAlerta = "El recurso se ha guardado correctamente";
-                    this.recurso = new Recurso("","",new Date(),false,"",1);
+                    this.recurso = new Recurso("","","",new Date(),false,"",1);
                 }
             },
             error =>{
